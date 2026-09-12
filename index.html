@@ -25,7 +25,7 @@
         <h1>Arcane Character Gallery</h1>
         <p>Explore characters from the worlds of Piltover and Zaun.</p>
 
-        <input type="text" placeholder="Search by character name or role...">
+     <input type="text" id="searchInput" placeholder="Search by character name or role...">
 
         <h2>Characters</h2>
         <h2>Characters</h2>
@@ -34,6 +34,7 @@
 
     <article>
         <h3>Jinx</h3>
+        <img src="images/jinx.jpg" alt="Jinx">
         <p><strong>Region:</strong> Zaun</p>
         <p><strong>Role:</strong> Marksman</p>
         <p>Jinx is a chaotic and inventive fighter from Zaun known for her powerful weapons and unpredictable personality.</p>
@@ -42,6 +43,7 @@
 
     <article>
         <h3>Vi</h3>
+        <img src="images/vi.jpg" alt="Vi">
         <p><strong>Region:</strong> Piltover</p>
         <p><strong>Role:</strong> Fighter</p>
         <p>Vi is a determined fighter known for her strength, loyalty, and powerful gauntlets.</p>
@@ -50,6 +52,7 @@
 
     <article>
         <h3>Caitlyn</h3>
+        <img src="images/caitlyn.jpg" alt="Caitlyn">
         <p><strong>Region:</strong> Piltover</p>
         <p><strong>Role:</strong> Enforcer</p>
         <p>Caitlyn is a skilled marksman and investigator who works to protect Piltover.</p>
@@ -58,6 +61,7 @@
 
     <article>
         <h3>Ekko</h3>
+        <img src="images/ekko.jpg" alt="Ekko">
         <p><strong>Region:</strong> Zaun</p>
         <p><strong>Role:</strong> Firelight Leader</p>
         <p>Ekko is an inventive leader from Zaun who fights to protect his community and create a better future.</p>
@@ -66,6 +70,7 @@
 
     <article>
         <h3>Viktor</h3>
+        <img src="images/viktor.jpg" alt="Viktor">
         <p><strong>Region:</strong> Zaun</p>
         <p><strong>Role:</strong> Scientist</p>
         <p>Viktor is a brilliant scientist focused on using technology to improve human life.</p>
@@ -75,11 +80,23 @@
 </section>
 
 </main>
+<script>
+    const searchInput = document.getElementById("searchInput");
+    const characters = document.querySelectorAll("article");
 
+    searchInput.addEventListener("input", function () {
+        const searchText = searchInput.value.toLowerCase();
+
+        characters.forEach(function (character) {
+            const characterText = character.textContent.toLowerCase();
+
+            if (characterText.includes(searchText)) {
+                character.style.display = "block";
+            } else {
+                character.style.display = "none";
+            }
+        });
+    });
+</script>
 </body>
-</html>
-    </main>
-
-</body>
-
 </html>
